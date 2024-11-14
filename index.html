@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Analysis Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #343a40;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #007BFF;
+        }
+
+        /* Carousel Styling */
+        .carousel-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            padding: 30px;
+            color: white;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .table-of-contents:hover {
+            background: linear-gradient(135deg, #0062cc, #004bb5);
+        }
+
+        .table-of-contents h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin: 15px 0;
+        }
+
+        .toc-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .toc-link i {
+            margin-right: 10px;
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .toc-link:hover {
+            color: #f39c12;
+            transform: scale(1.05);
+        }
+
+        .toc-link:hover i {
+            transform: translateX(5px);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Section Styling */
+        .analysis-section {
+            padding: 50px 30px;
+            background-color: #f4f9fb;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            transition: background-color 0.5s ease, transform 0.3s ease;
+        }
+
+        .analysis-section:hover {
+            transform: translateY(-10px);
+            background-color: #eef6fc;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #0062cc;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .analysis-text {
+            padding: 20px;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333333;
+        }
+
+        .analysis-text h4 {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        .analysis-image img {
+            width: 100%;
+            max-height: 800px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .analysis-image img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(45deg, #343a40, #007bff);
+            background-size: 400% 400%;
+            animation: gradientAnimation 5s ease infinite;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Social Media Icons in Footer */
+        footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #f39c12;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #007bff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Spatial Analysis</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="https://sites.google.com/view/domain07/home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carousel Header -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <!-- Only the first item should have the "active" class -->
+            <div class="carousel-item active">
+                <img src="https://th.bing.com/th/id/R.0d580981bf015e7719fd2f2fdd35310a?rik=8G3JzvBsJW%2fmwg&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fd%2f9%2ff%2f820882-full-hd-nature-wallpapers-2560x1440-notebook.jpg&ehk=%2b5BIzQUsWxv7uGwvdEq05btxU%2bqroPTdbrsHMgzZcOk%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="First Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://th.bing.com/th/id/R.a72d7570441b372bf44a36708e41dab0?rik=q1OlJNyn4Bxl1A&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f07%2f1080p-Full-HD-Images-For-Desktop.jpg&ehk=8yQ1dnZBT9Ekski0C2apyaYYiO%2bfAg55i1NU%2bmIjISY%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="Second Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Full-hd-nature-wallpapers-1080p-desktop-1.jpg" class="d-block w-100" alt="Third Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpaperaccess.com/full/284466.jpg" class="d-block w-100" alt="Fourth Slide">
+            </div>
+            <div class="carousel-item">
+                <img src="https://wallpapercave.com/wp/Rc9RFkt.jpg" class="d-block w-100" alt="Fifth Slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Table of Contents Section -->
+    <section id="about" class="table-of-contents">
+        <h3>Table of Contents</h3>
+        <ul class="toc-list">
+            <li><a href="#fractraldimensionanalysis" class="toc-link"><i class="fas fa-map"></i> Fractral Dimension 				Analysis</a></li>
+            <li><a href="#lisa" class="toc-link"><i class="fas fa-location-arrow"></i>LOCAL INDICATORS OF SPATIAL 					ASSOCIATION (LISA)</a></li>
+            <li><a href="#groundwaterdepth" class="toc-link"><i class="fas fa-project-diagram"></i> GROUND WATER DEPTH 				MAPPING</a></li>
+            <li><a href="#lst" class="toc-link"><i class="fas fa-project-diagram"></i>LAND SURFACE TEMPERATURE (LST)</a>			</li>
+            <li><a href="#suhi" class="toc-link"><i class="fas fa-project-diagram"></i>SURFACE URBAN  HEAT ISLAND (SUHI)			</a>
+            </li>
+            <li><a href="#utfvi" class="toc-link"><i class="fas fa-project-diagram"></i>URBAN THERMAL FIELD VARIANCE INDEX 				(UTFVI)</a>
+            </li>
+            <li><a href="#tcm" class="toc-link"><i class="fas fa-project-diagram"></i>THERMAL CRITICALITY MAPPING</a>
+            </li>
+            <li><a href="#tcsm" class="toc-link"><i class="fas fa-project-diagram"></i>THERMAL COMFORTNESS MAPPING</a>
+            </li>
+            <li><a href="#lulcoversuhi" class="toc-link"><i class="fas fa-project-diagram"></i>ROLE OF DIFFERENT LANDUSE AND LANDCOVER ELEMENTS IN INCREASING LAND SURFACE TEMPERATURE</a>
+            </li>
+        </ul>
+    </section>
+
+    <!--1st Sections Updated with Unique IDs -->
+    <section id="fractraldimensionanalysis" class="analysis-section">
+        <div class="section-title">FRACTAL DIMENSION ANALYSIS</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h4>MD JAHID</h4>
+                    <p>Fractal Dimension Analysis is a mathematical method used to quantify the complexity and spatial distribution of urban forms. 
+                        The fractal dimension (D) value ranges between 1 and 2 for 2-dimensional spaces, with values closer to 2 indicating more complex, space-filling structures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+	<!--2nd Sections Updated with Unique IDs -->
+    <section id="lisa" class="analysis-section">
+        <div class="section-title">LOCAL INDICATORS OF SPATIAL ASSOCIATION (LISA)</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-text">
+                    <h4>gbnm cbnm, gdhfgj</h4>
+                    <p>MD JAHID, JDH JDBD HGH JAB JKAHJ NSB</p>
+                </div>
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Temporal Changes">
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!--3rd Sections Updated with Unique IDs -->
+    <section id="groundwaterdepth" class="analysis-section">
+        <div class="section-title">GROUND WATER DEPTH MAPPING</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h4>Urban Growth Analysis</h4>
+                    <p>This section provides an overview of spatial patterns in urban growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+	<!--4th Sections Updated with Unique IDs -->
+    <section id="lst" class="analysis-section">
+        <div class="section-title">LAND SURFACE TEMPERATURE (LST)</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-text">
+                    <h4>Temporal Changes in Spatial Patterns</h4>
+                    <p>This analysis focuses on how urban areas expand over time and the impact of different policies on urban space.</p>
+                </div>
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Temporal Changes">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--5th Sections Updated with Unique IDs -->
+    <section id="suhi" class="analysis-section">
+        <div class="section-title">SURFACE URBAN  HEAT ISLAND (SUHI)</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h4>Urban Growth Analysis</h4>
+                    <p>This section provides an overview of spatial patterns in urban growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--6th Sections Updated with Unique IDs -->
+    <section id="utfvi" class="analysis-section">
+        <div class="section-title">URBAN THERMAL FIELD VARIANCE INDEX (UTFVI)</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-text">
+                    <h4>Temporal Changes in Spatial Patterns</h4>
+                    <p>This analysis focuses on how urban areas expand over time and the impact of different policies on urban space.</p>
+                </div>
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Temporal Changes">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--7th Sections Updated with Unique IDs -->
+    <section id="tcm" class="analysis-section">
+        <div class="section-title">THERMAL CRITICALITY MAPPING</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h4>MD JAHID</h4>
+                    <p>This section provides an overview of spatial patterns in urban growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--8th Sections Updated with Unique IDs -->
+    <section id="tcsm" class="analysis-section">
+        <div class="section-title">THERMAL COMFORTNESS MAPPING</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-text">
+                    <h4>MD JAHID</h4>
+                    <p>This analysis focuses on how urban areas expand over time and the impact of different policies on urban space.</p>
+                </div>
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Temporal Changes">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--9th Sections Updated with Unique IDs -->
+    <section id="lulcoversuhi" class="analysis-section">
+        <div class="section-title">ROLE OF DIFFERENT LANDUSE AND LANDCOVER ELEMENTS IN INCREASING LAND SURFACE TEMPERATURE</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 analysis-image">
+                    <img src="D:\PROJECT DONE\LAYOUT" alt="Urban Growth Analysis">
+                </div>
+                <div class="col-md-6 analysis-text">
+                    <h4>MD JAHID</h4>
+                    <p>This section provides an overview of spatial patterns in urban growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Spatial Analysis Portfolio | All Rights Reserved</p>
+        <div>
+            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+   <!-- Bootstrap and jQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- Use slim.min.js for compatibility with Bootstrap 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
